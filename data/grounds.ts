@@ -1,21 +1,12 @@
 export const grounds = [
-  {
-    id: "consent",
-    label: "Consent",
-  },
-
+  { id: "consent", label: "Consent" },
   {
     id: "employment_legitimate_use",
-    label: "Employment-related legitimate use",
+    label: "Employment-Related Legitimate Use",
   },
-
   {
     id: "voluntary_provision",
-    label: "Voluntary provision by the individual",
+    label: "Voluntary Provision by the Individual",
   },
-
-  {
-    id: "legal_obligation",
-    label: "Compliance with legal obligations",
-  },
+  { id: "legal_obligation", label: "Compliance with Legal Obligations" },
 ];

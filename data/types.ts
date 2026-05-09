@@ -1,7 +1,17 @@
+export type FlowState =
+  | "CONTROLLER_PATH"
+  | "PROCESSOR_PATH"
+  | "NOT_APPLICABLE_INDIA";
+
+export type ProcessingFootprint = "limited" | "moderate" | "extensive";
+
 export type AssessmentAnswers = {
   // Layer 1
   processesDataInIndia?: boolean;
   offersGoodsOrServicesToPeopleInIndia?: boolean;
+
+  // Derived — injected automatically after Layer 2
+  flowState?: FlowState;
 
   // Layer 2
   controlsWhyAndHowDataIsUsed?: boolean;
@@ -12,8 +22,6 @@ export type AssessmentAnswers = {
 
   // Layer 4
   processesChildData?: boolean;
-  processesPwDGuardianData?: boolean;
   offshoreTransfers?: boolean;
-
-  processingFootprint?: "limited" | "moderate" | "extensive";
+  processingFootprint?: ProcessingFootprint;
 };
