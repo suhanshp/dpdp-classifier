@@ -1,9 +1,10 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { generateReport } from "../../data/reportEngine";
 
-export default function ReportPage() {
+function ReportContent() {
   const searchParams = useSearchParams();
   const raw = searchParams.get("data");
   const answers = raw ? JSON.parse(decodeURIComponent(raw)) : null;
@@ -99,7 +100,22 @@ export default function ReportPage() {
             </button>
           </div>
         </div>
+
       </div>
     </main>
+  );
+}
+
+export default function ReportPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="bg-black text-white min-h-screen flex items-center justify-center">
+          <p className="text-gray-500">Loading report...</p>
+        </main>
+      }
+    >
+      <ReportContent />
+    </Suspense>
   );
 }
